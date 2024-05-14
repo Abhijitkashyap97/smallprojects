@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todolist</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+    <input type="text" placeholder="enter" class="todo">
+    <input type="date" class="date">
+    <button onclick="f2();"> Submit </button>
+    <div class="flex">
+    <div class="showList"></div>
+    <div class="datelist"></div>
+    <div class="del"></div>
+    </div>
+    <script>
+        const date =[];
+        const todolist=[];
+        function f2(){
+            todolist.push(document.querySelector('.todo').value);
+            console.log(todolist);
+            date.push(document.querySelector('.date').value);
+            console.log(date);
+            f1();
+        }
+        let i,j;
+      function  f1(){                  
+     let tot=' ';
+      for( i=0;i<todolist.length;i++){
+        const t=todolist[i];
+        const html=`<p>${t}</p>`;
+        tot+=html;
+     }
+     document.querySelector('.showList').innerHTML= tot;
+    let dat='';
+    for( j=0;j<date.length;j++)
+    {
+        const d= date[j];
+        const html1=`<p>${d}</p>`;
+        dat+=html1;
+    }
+    document.querySelector('.datelist').innerHTML=dat;
+    let del2='';
+    for(let i=0;i<todolist.length;i++){
+        const del=`<button onclick="f4();">Delete</button><br>`;
+        del2+=del
+        document.querySelector('.del').innerHTML=del2;
+    }
+}
+    function f4(){
+        console.log('delete working fine');
+        todolist.splice({i},1);
+        date.splice({j},1);
+        del2=' ';
+        f1();
+    }
+    </script>
+</body>
+</html>
