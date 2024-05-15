@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet" href ="stopwatch.css">
+    <title>StopWatch</title>
+</head>
+<body>
+    <div class="hour">
+        00:00:00
+    </div>
+    <div class="laphr"></div>
+    <button onclick="f1();">Start</button>
+    <button onclick="f2();">Reset</button>
+    <button onclick="f3();">Lap</button>
+    <button onclick="f9();">Pause</button>
+    <div class="lap">Lap time</div>
+    <script>
+        let my;
+        let my1;
+        let y=0;
+        let x=0;
+        let z=0;
+        let a,b,c;
+        let store;
+        let add='';
+        function f1(){
+            if(y<1 || x>0){
+            y++;
+            x=0;
+            let time=0;
+            let t=0;
+            let min=0;
+            let hour=0;
+            my =setInterval(function(){
+            t++;
+            z++;
+            const html= `${hour} : ${min} : ${t}`;
+            if(t<=59){
+            document.querySelector('.hour').innerHTML=html;
+            a=t;
+            b=0;
+            c=0;
+            }
+            else if(t<3600){
+                t=0;
+                min++;
+                const html=`${hour} : ${min} : ${t}`;
+                document.querySelector('.hour').innerHTML=html;
+                a=t;
+                b=min;
+            }
+        if(min>=60){
+            min=0;
+            t=0;
+            hour++;
+            const html=`${hour} : ${min} : ${t}`;
+            document.querySelector('.hour').innerHTML=html;
+            a=t;
+            b=min;
+            c=hour;
+        }},1000)
+            }}
+function f2(){
+    x++;
+    y=0;
+    clearInterval(my);
+    clearInterval(my1);
+    clearInterval(my3);
+    const stop=`<div>00:00:00</div>`;
+    document.querySelector('.hour').innerHTML=stop;
+    document.querySelector('.laphr').innerHTML=stop;
+    if(x>1){
+        x=0;
+    }
+    document.querySelector('.lap').innerHTML=null;
+    add='';
+    document.querySelector('.laphr').innerHTML=null;
+}
+function f3(){
+    f5();
+    x=0;
+    y=0;
+    f6();
+    f1();
+    store =store+`<br>`
+    add =add+store;
+    document.querySelector('.lap').innerHTML=add;
+}
+    function f5(){   
+    x++;
+    y=0;
+    clearInterval(my1);
+    if(x>1){
+        x=0;
+    }
+    }
+    function f6()
+        {
+            if(y<1 || x>0){
+                y++;
+                x=0;
+        let time=0;
+        let t=0;
+        let min=0;
+        let hour=0;
+        my1 =setInterval(function(){
+           t++;
+           const html= `${hour} : ${min} : ${t}`;
+           store=html;
+           if(t<=59){
+           document.querySelector('.laphr').innerHTML=html;
+        }
+        else if(t<3600){
+            t=0;
+            min++;
+            const html=`${hour} : ${min} : ${t}`;
+            store=html;
+            document.querySelector('.laphr').innerHTML=html;
+        }
+    if(min>=60){
+        min=0;
+        t=0;
+        hour++;
+        const html=`${hour} : ${min} : ${t}`;
+        store=html;
+        document.querySelector('.laphr').innerHTML=html;
+            }},1000)
+        } 
+        }
+        let my3;
+        let n=0;
+        function f9(){
+            if(n<1){
+                n=1;
+            x++;
+            y=0;
+            clearInterval(my);
+            if(y<1 || x>0){
+            y++;
+            x=0;
+            let time=0;
+            let t1=a;
+            let min1=b;
+            let hour1=c;
+            my3 =setInterval(function(){
+            t1++;
+            z++;
+            const html1= `${hour1} : ${min1} : ${t1}`;
+            if(t1<=59){
+            document.querySelector('.hour').innerHTML=html1;
+            }
+            else if(t1<3600){
+                t1=0;
+                min1++;
+                const html1=`${hour1} : ${min1} : ${t1}`;
+                document.querySelector('.hour').innerHTML=html1;
+            }
+        if(min1>=60){
+            min1=0;
+            t1=0;
+            hour1++;
+            const html1=`${hour1} : ${min1} : ${t1}`;
+            document.querySelector('.hour').innerHTML=html1;
+        }},10000000000000)
+        }
+        }
+            else if(n>=1){
+            clearInterval(my1);
+            console.log('yes');
+            start
+            f1();
+            n=0;
+            }
+        }
+        
+    
+    </script>
+</body>
+</html>
