@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light</title>
+    <link rel ="stylesheet" href="traffic.css">
+</head>
+<body>
+    
+    <div class="post">
+        <button  class="red">
+        <div>
+           
+        </div>
+    </button>
+    <button  class="yellow">
+        <div>
+           
+        </div>
+    </button>
+    <button class="green">
+        <div >
+        
+        </div>
+    </button>
+    </div>
+   
+    <script>
+            let a1=document.querySelector('.red');
+            let a2=document.querySelector('.yellow');
+            let a3=document.querySelector('.green');
+        let i=0;
+      
+        setInterval(function(){i++;
+            console.log(i);
+           
+            if(i<=4){
+              
+                a1.style.backgroundColor="red";
+                console.log('red');
+                a2.style.backgroundColor='transparent';
+                a3.style.backgroundColor='transparent';
+            }
+            else if(i<=8){
+           
+                a2.style.backgroundColor='yellow';
+                console.log('yellow');
+                a1.style.backgroundColor='transparent';
+                a3.style.backgroundColor='transparent';
+            }
+            else if(i<=12)
+            {
+            
+                a3.style.backgroundColor='green';
+                a1.style.backgroundColor='transparent';
+                a2.style.backgroundColor='transparent';
+                console.log('lightgreen');
+            }
+        if(i>12){
+            i=0;
+        }},1);
+          
+           
+       
+    </script>
+</body>
+</html>
